@@ -1,0 +1,9 @@
+multi_choice_format:
+ "
+ 
+{question}
+
+Think step-by-step, and then put your final answer in \"\\boxed{{}}\". "
+
+
+
