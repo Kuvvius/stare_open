@@ -414,7 +414,7 @@ def test_gemini_on_folding_nets(dataset_name, output_dir, model='gemini-2.0-flas
             answer_choices = example['choices']
 
             gt_ans = answer_choices[int(ord(gt_choice) - ord('a'))]
-
+            
             output = {
                 "qid": qid,
                 "pred": pred,
