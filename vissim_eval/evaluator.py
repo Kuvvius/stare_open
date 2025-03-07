@@ -7,104 +7,104 @@ from tqdm import tqdm
 
 import re
 
-def is_number(s: str) -> bool:
-    """
-    判断一个字符串是否可以解释为数字（整数、浮点数、分数等）
+# def is_number(s: str) -> bool:
+#     """
+#     判断一个字符串是否可以解释为数字（整数、浮点数、分数等）
     
-    Args:
-        s: 要检查的字符串
+#     Args:
+#         s: 要检查的字符串
     
-    Returns:
-        bool: 如果字符串可以解释为数字则返回True，否则返回False
-    """
-    # 去除前后空白和可能的引号
-    s = s.strip().strip('"\'')
+#     Returns:
+#         bool: 如果字符串可以解释为数字则返回True，否则返回False
+#     """
+#     # 去除前后空白和可能的引号
+#     s = s.strip().strip('"\'')
     
-    # 如果为空字符串，返回False
-    if not s:
-        return False
+#     # 如果为空字符串，返回False
+#     if not s:
+#         return False
     
-    # 尝试检查整数或浮点数
-    try:
-        # 移除千位分隔符(逗号)
-        s = s.replace(',', '')
-        # 移除可能的数字间下划线(如1_000_000)
-        s = s.replace('_', '')
-        float(s)
-        return True
-    except ValueError:
-        # 检查是否为分数格式 (如 "3/4")
-        if '/' in s:
-            try:
-                num, denom = s.split('/', 1)
-                float(num) / float(denom)
-                return True
-            except (ValueError, ZeroDivisionError):
-                pass
+#     # 尝试检查整数或浮点数
+#     try:
+#         # 移除千位分隔符(逗号)
+#         s = s.replace(',', '')
+#         # 移除可能的数字间下划线(如1_000_000)
+#         s = s.replace('_', '')
+#         float(s)
+#         return True
+#     except ValueError:
+#         # 检查是否为分数格式 (如 "3/4")
+#         if '/' in s:
+#             try:
+#                 num, denom = s.split('/', 1)
+#                 float(num) / float(denom)
+#                 return True
+#             except (ValueError, ZeroDivisionError):
+#                 pass
         
-        # 检查是否为百分比
-        if s.endswith('%'):
-            try:
-                float(s[:-1])
-                return True
-            except ValueError:
-                pass
+#         # 检查是否为百分比
+#         if s.endswith('%'):
+#             try:
+#                 float(s[:-1])
+#                 return True
+#             except ValueError:
+#                 pass
                 
-        return False
+#         return False
 
 
-def find_math_answer(text: str) -> str:
-    """
-    从文本中提取数学问题的答案
+# def find_math_answer(text: str) -> str:
+#     """
+#     从文本中提取数学问题的答案
     
-    Args:
-        text: 包含数学答案的文本
+#     Args:
+#         text: 包含数学答案的文本
     
-    Returns:
-        str: 提取的数学答案，如果未找到则返回空字符串
-    """
-    # 删除文本中的LaTeX符号，简化处理
-    text = re.sub(r'\$|\\\(|\\\)|\\\[|\\\]', '', text)
+#     Returns:
+#         str: 提取的数学答案，如果未找到则返回空字符串
+#     """
+#     # 删除文本中的LaTeX符号，简化处理
+#     text = re.sub(r'\$|\\\(|\\\)|\\\[|\\\]', '', text)
     
-    # 常见答案引导词模式
-    answer_patterns = [
-        r'(?:answer|result|value)[^\w\d\.-]* (?:is|=|:)[^\w\d\.-]*([+-]?\d[\d,_]*(\.[\d]+)?)',  # "answer is 42"
-        r'(?:答案|结果|等于|为|得)[^\w\d\.-]*(?:是|为|:|\s)[^\w\d\.-]*([+-]?\d[\d,_]*(\.[\d]+)?)',  # "答案是42"
-        r'([+-]?\d[\d,_]*(\.[\d]+)?)(?=[^\d]|$)',  # 任何数字
-        r'(\d+/\d+)',  # 分数
-        r'(\d+\s+\d+/\d+)',  # 带分数
-        r'(\d+%)'  # 百分比
-    ]
+#     # 常见答案引导词模式
+#     answer_patterns = [
+#         r'(?:answer|result|value)[^\w\d\.-]* (?:is|=|:)[^\w\d\.-]*([+-]?\d[\d,_]*(\.[\d]+)?)',  # "answer is 42"
+#         r'(?:答案|结果|等于|为|得)[^\w\d\.-]*(?:是|为|:|\s)[^\w\d\.-]*([+-]?\d[\d,_]*(\.[\d]+)?)',  # "答案是42"
+#         r'([+-]?\d[\d,_]*(\.[\d]+)?)(?=[^\d]|$)',  # 任何数字
+#         r'(\d+/\d+)',  # 分数
+#         r'(\d+\s+\d+/\d+)',  # 带分数
+#         r'(\d+%)'  # 百分比
+#     ]
     
-    for pattern in answer_patterns:
-        matches = re.findall(pattern, text)
-        if matches:
-            # 对于单纯的数字，取第一个match的第一个group
-            if isinstance(matches[0], tuple):
-                candidate = matches[0][0]
-            else:
-                candidate = matches[0]
+#     for pattern in answer_patterns:
+#         matches = re.findall(pattern, text)
+#         if matches:
+#             # 对于单纯的数字，取第一个match的第一个group
+#             if isinstance(matches[0], tuple):
+#                 candidate = matches[0][0]
+#             else:
+#                 candidate = matches[0]
             
-            # 净化候选答案
-            candidate = candidate.strip()
+#             # 净化候选答案
+#             candidate = candidate.strip()
             
-            return candidate
+#             return candidate
     
-    # 如果常规搜索失败，尝试查找"最终答案"附近的数字
-    final_answer_patterns = [
-        r'(?:final answer|finally)[^\d]*([+-]?\d[\d,_]*(\.[\d]+)?)',
-        r'(?:最终答案|最终结果)[^\d]*([+-]?\d[\d,_]*(\.[\d]+)?)'
-    ]
+#     # 如果常规搜索失败，尝试查找"最终答案"附近的数字
+#     final_answer_patterns = [
+#         r'(?:final answer|finally)[^\d]*([+-]?\d[\d,_]*(\.[\d]+)?)',
+#         r'(?:最终答案|最终结果)[^\d]*([+-]?\d[\d,_]*(\.[\d]+)?)'
+#     ]
     
-    for pattern in final_answer_patterns:
-        matches = re.findall(pattern, text.lower())
-        if matches:
-            if isinstance(matches[0], tuple):
-                return matches[0][0].strip()
-            else:
-                return matches[0].strip()
+#     for pattern in final_answer_patterns:
+#         matches = re.findall(pattern, text.lower())
+#         if matches:
+#             if isinstance(matches[0], tuple):
+#                 return matches[0][0].strip()
+#             else:
+#                 return matches[0].strip()
     
-    return ""
+#     return ""
 
 class VissimEvaluator:
     def __init__(

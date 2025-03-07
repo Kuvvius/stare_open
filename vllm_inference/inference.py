@@ -23,6 +23,7 @@ class VllmInferenceArguments:
     gpu_memory_utilization: Optional[float] = field(default=0.8)
     cpu_offload_gb: Optional[int] = field(default=0)
     max_model_len: Optional[int] = field(default=None)
+    truncate_prompt_tokens: Optional[int] = field(default=None)
     
     max_images: Optional[int] = field(default = None)
     temperature: Optional[float] = field(default = 0)

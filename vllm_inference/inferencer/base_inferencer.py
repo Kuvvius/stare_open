@@ -27,6 +27,7 @@ class VLLMBaseInferencer():
         self.dataset_cache_dir = args.dataset_cache_dir
         self.batch_size = args.batch_size
         
+        self.truncate_prompt_tokens = args.truncate_prompt_tokens
         self.max_model_len = args.max_model_len
         self.cpu_offload_gb = args.cpu_offload_gb
         self.gpu_memory_utilization = args.gpu_memory_utilization
@@ -80,6 +81,7 @@ class VLLMBaseInferencer():
             top_p=self.args.top_p,
             top_k=self.args.top_k,
             max_tokens=self.args.max_output_tokens,
+            truncate_prompt_tokens = self.truncate_prompt_tokens
         )
     
     def write_output_item(self, item):

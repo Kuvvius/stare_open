@@ -85,8 +85,7 @@ for i in "${!datasets[@]}"; do
     --output_path /mnt/petrelfs/songmingyang/code/reasoning/others/stare_open/vllm_inference/scripts/results/qwen25vl72b/${dataset_name}.jsonl \
     --function ${function_type} \
     --model_path ${model_path} \
-    --tensor_parallel_size 4 \
-    --max_model_len 96700
+    --tensor_parallel_size 4 
     
     echo "Completed ${dataset_name}"
 done
