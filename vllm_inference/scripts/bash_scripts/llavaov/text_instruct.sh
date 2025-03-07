@@ -1,5 +1,5 @@
 source ~/.bashrc
-source ~/anaconda3/bin/activate r1-v
+source ~/anaconda3/bin/activate vllm2
 
 # environment variables
 export OMP_NUM_THREADS=1
@@ -24,7 +24,7 @@ model_short_name=llavaov
 gpus=0
 cpus=2
 quotatype="reserved"
-CUDA_VISIBLE_DEVICES=0,1,2,3 \
+CUDA_VISIBLE_DEVICES=4,5,6,7 \
 srun --partition=MoE --job-name="qvq_rollout" --mpi=pmi2  --gres=gpu:${gpus} -n1 --ntasks-per-node=1 -c ${cpus} --kill-on-bad-exit=1 --quotatype=${quotatype}  \
 -w SH-IDCA1404-10-140-54-86 \
 python  ./inference.py  \
@@ -32,6 +32,7 @@ python  ./inference.py  \
 --output_path /mnt/petrelfs/songmingyang/code/reasoning/others/stare_open/vllm_inference/scripts/results/${model_short_name}/${dataset_name}.jsonl \
 --function text_instruct \
 --model_path ${model_path} \
+--temperature 0.01 \
 --tensor_parallel_size 4 
 
 

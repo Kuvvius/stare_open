@@ -12,7 +12,8 @@ stare_open.egg-info/SOURCES.txt
 stare_open.egg-info/dependency_links.txt
 stare_open.egg-info/top_level.txt
 vllm_inference/__init__.py
-vllm_inference/vllm_inference.py
+vllm_inference/__main__.py
+vllm_inference/inference.py
 vllm_inference/inferencer/__init__.py
 vllm_inference/inferencer/base_inferencer.py
 vllm_inference/inferencer/prompts.py

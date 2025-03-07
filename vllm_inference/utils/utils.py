@@ -177,6 +177,9 @@ def pil_to_base64(img: Image.Image, url_format = True) -> str:
     Returns:
         str: Base64 encoded string representation of the image.
     """
+    if img.mode in ("RGBA", "LA", "P"):
+        img = img.convert("RGB") 
+    
     buffered = io.BytesIO()
     img.save(buffered, format="JPEG")
     img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')

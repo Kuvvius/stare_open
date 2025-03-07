@@ -10,7 +10,9 @@ cd $code_base
 export SLURM_JOB_ID=4294232
 unset SLURM_JOB_ID
 
-new_proxy_address="http://closeai-proxy.pjlab.org.cn:23128"
+AD_NAME=songmingyang
+encrypted_password=iWRsYqbwV4EJgJvU8QjLe00CptZc5jBVH3FMo5i6n9mVdOSoUurpyBTmst1Z
+new_proxy_address=http://${AD_NAME}:${encrypted_password}@10.1.20.50:23128/
 export http_proxy=$new_proxy_address
 export https_proxy=$new_proxy_address
 export HTTP_PROXY=$new_proxy_address
@@ -20,23 +22,25 @@ export HTTPS_PROXY=$new_proxy_address
 # Define an array of datasets
 datasets=(
     # vas
-    "3d_va_test"
-    "2d_va_vissim_test"
     "3d_va_vissim_test"
-    "2d_va_test"
-    # tis
-    "3d_text_instruct_vissim_test"
-    "2d_text_instruct_test"
-    "3d_text_instruct_test"
-    "2d_text_instruct_vissim_test"
-    # folding nets
-    "tangram_puzzle_test"
-    "folding_nets_vissim_test"
-    "folding_nets_3d_perception_test"
-    "folding_nets_2d_perception_test"
-    "tangram_puzzle_vissim_test"
-    "folding_nets_test"
-    # others
+    "3d_va_test"
+    
+    # "2d_va_vissim_test"
+    
+    # "2d_va_test"
+    # # tis
+    # "3d_text_instruct_vissim_test"
+    # "2d_text_instruct_test"
+    # "3d_text_instruct_test"
+    # "2d_text_instruct_vissim_test"
+    # # folding nets
+    # "tangram_puzzle_test"
+    # "folding_nets_vissim_test"
+    # "folding_nets_3d_perception_test"
+    # "folding_nets_2d_perception_test"
+    # "tangram_puzzle_vissim_test"
+    # "folding_nets_test"
+    # # others
 )
 
 
@@ -44,21 +48,21 @@ combined_datasets=(
     # vas
     "va"
     "va"
-    "va"
-    "va"
-    # tis
-    "text_instruct"
-    "text_instruct"
-    "text_instruct"
-    "text_instruct"
-    # folding nets
-    "folding"
-    "folding"
-    "folding"
-    "folding"
-    "folding"
-    "folding"
-    # others
+    # "va"
+    # "va"
+    # # tis
+    # "text_instruct"
+    # "text_instruct"
+    # "text_instruct"
+    # "text_instruct"
+    # # folding nets
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # # others
 )
 
 cpus=2

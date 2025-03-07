@@ -196,7 +196,7 @@ class VissimvaInferencer(VLLMBaseInferencer):
             B_image = item["B_image"]
             choice_image = item["choices"]
             question_info = json.loads(item["question_info"])
-
+            # breakpoint()
             question = question_info.get("question", "")
             if question is None:
                 print(f"Question is None for qid {qid}")
@@ -211,7 +211,11 @@ class VissimvaInferencer(VLLMBaseInferencer):
             # 处理问题文本
             prefix, question_part = question.strip().split("<question_image>")
             middle, question_part = question_part.split("<image_for_B>")
-            suffix, question_part = question_part.split("<answer_choices>")
+            if "<answer_choices>" in question_part:
+                suffix, question_part = question_part.split("<answer_choices>")
+            else:
+                suffix = question_part
+                question_part = ""
             contents = [
                     {"type": "text", "text": f"{prefix}"},
                     {"type": "image_url", "image_url": {"url": pil_to_base64(A_image)}},

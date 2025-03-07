@@ -10,7 +10,9 @@ cd $code_base
 export SLURM_JOB_ID=4294232
 unset SLURM_JOB_ID
 
-new_proxy_address="http://closeai-proxy.pjlab.org.cn:23128"
+AD_NAME=songmingyang
+encrypted_password=iWRsYqbwV4EJgJvU8QjLe00CptZc5jBVH3FMo5i6n9mVdOSoUurpyBTmst1Z
+new_proxy_address=http://${AD_NAME}:${encrypted_password}@10.1.20.50:23128/
 export http_proxy=$new_proxy_address
 export https_proxy=$new_proxy_address
 export HTTP_PROXY=$new_proxy_address
@@ -21,21 +23,22 @@ export HTTPS_PROXY=$new_proxy_address
 datasets=(
     # vas
     "3d_va_test"
-    "2d_va_vissim_test"
     "3d_va_vissim_test"
-    "2d_va_test"
-    # tis
-    "3d_text_instruct_vissim_test"
-    "2d_text_instruct_test"
-    "3d_text_instruct_test"
-    "2d_text_instruct_vissim_test"
-    # folding nets
-    "tangram_puzzle_test"
-    "folding_nets_vissim_test"
-    "folding_nets_3d_perception_test"
-    "folding_nets_2d_perception_test"
-    "tangram_puzzle_vissim_test"
-    "folding_nets_test"
+    # "2d_va_vissim_test"
+    
+    # "2d_va_test"
+    # # tis
+    # "3d_text_instruct_vissim_test"
+    # "2d_text_instruct_test"
+    # "3d_text_instruct_test"
+    # "2d_text_instruct_vissim_test"
+    # # folding nets
+    # "tangram_puzzle_test"
+    # "folding_nets_vissim_test"
+    # "folding_nets_3d_perception_test"
+    # "folding_nets_2d_perception_test"
+    # "tangram_puzzle_vissim_test"
+    # "folding_nets_test"
 )
 
 
@@ -43,25 +46,28 @@ combined_datasets=(
     # vas
     "va"
     "va"
-    "va"
-    "va"
-    # tis
-    "text_instruct"
-    "text_instruct"
-    "text_instruct"
-    "text_instruct"
-    # folding nets
-    "folding"
-    "folding"
-    "folding"
-    "folding"
-    "folding"
-    "folding"
+    # "va"
+    # "va"
+    # # tis
+    # "text_instruct"
+    # "text_instruct"
+    # "text_instruct"
+    # "text_instruct"
+    # # folding nets
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
 )
 
 model_path=/mnt/petrelfs/share_data/songmingyang/haoyunzhuo/models/InternVL2_5-78B
 model_short_name=intern25vl78b
 
+cpus=2
+gpus=0
+quotatype="reserved"
 # Loop through both arrays simultaneously
 for i in "${!datasets[@]}"; do
     dataset_name="${datasets[$i]}"
@@ -69,9 +75,9 @@ for i in "${!datasets[@]}"; do
     
     echo "Processing dataset: ${dataset_name}, function type: ${function_type}"
     
-    CUDA_VISIBLE_DEVICES=0,4,6,7 \
+    CUDA_VISIBLE_DEVICES=0,1,2,3 \
     srun --partition=MoE --job-name="eval_vissim" --mpi=pmi2  --gres=gpu:${gpus} -n1 --ntasks-per-node=1 -c ${cpus} --kill-on-bad-exit=1 --quotatype=${quotatype}  \
-    -w SH-IDCA1404-10-140-54-67 \
+    -w SH-IDCA1404-10-140-54-86 \
     python  ./inference.py  \
     --input_path VisSim/${dataset_name} \
     --output_path /mnt/petrelfs/songmingyang/code/reasoning/others/stare_open/vllm_inference/scripts/results/${model_short_name}/${dataset_name}.jsonl \
