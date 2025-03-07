@@ -24,8 +24,8 @@ datasets=(
     # # vas
     # # "3d_va_vissim_test"
     # # "3d_va_test"
-    # "2d_va_vissim_test"
-    # "2d_va_test"
+    "2d_va_vissim_test"
+    "2d_va_test"
     # # tis
     # "2d_text_instruct_test"
     # "2d_text_instruct_vissim_test"
@@ -40,7 +40,7 @@ datasets=(
     # "folding_nets_test"
     # others
     # "mvideo"
-    "nperspective"
+    # "nperspective"
 )
 
 
@@ -48,14 +48,14 @@ combined_datasets=(
     # # vas
     # # "va"
     # # "va"
-    # "va"
-    # "va"
+    "va"
+    "va"
     # # tis
     # "text_instruct"
     # "text_instruct"
-    # # "text_instruct"
-    # # "text_instruct"
-    # # folding nets
+    # "text_instruct"
+    # "text_instruct"
+    # folding nets
     # "folding"
     # "folding"
     # "folding"
@@ -64,7 +64,7 @@ combined_datasets=(
     # "folding"
     # others
     # "mvideo"
-    "nperspective"
+    # "nperspective"
 )
 
 model_path=/mnt/petrelfs/share_data/songmingyang/haoyunzhuo/models/InternVL2_5-78B

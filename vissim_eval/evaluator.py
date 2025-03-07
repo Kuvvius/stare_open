@@ -86,7 +86,8 @@ class VissimEvaluator:
             difficulty_level = example.get('difficulty_level', 'unknown')
             
             # Extract variant from qid (e.g., "1steps_easy")
-            variant = " ".join(qid.split("_")[1:-1])
+            # breakpoint()
+            variant = " ".join(qid.split("_")[2:-1])
             
             # Get prediction and ground truth
             response = example.get('response', '')
@@ -386,7 +387,6 @@ class VissimEvaluator:
 
 if __name__ == "__main__":
 
-    
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_path", type=str, required=True, help="Path to input JSONL file")
     parser.add_argument("--output_path", type=str, required=True, help="Path to output JSON file")

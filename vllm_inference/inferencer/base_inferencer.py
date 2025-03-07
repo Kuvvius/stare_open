@@ -91,18 +91,22 @@ class VLLMBaseInferencer():
     
     def respond_batch(self, batch) -> None:
         conversations = [item["conversations"] for item in batch]
-        outputs = self.model.chat(
-            conversations,
-            sampling_params = self.sampling_params,
-            use_tqdm = True,
-        )
+        try:
+            outputs = self.model.chat(
+                conversations,
+                sampling_params = self.sampling_params,
+                use_tqdm = True,
+            )
+            
+            for output_idx, output, batch_item in zip(range(len(outputs)), outputs, batch):
+                output_text = output.outputs[0].text
+                batch_item["response"] = output_text
+                res = deepcopy(batch_item)
+                self.write_output_item(res)
+        except Exception as e:
+            logger.error(f"Error in responding batch: {e}")
         
-        for output_idx, output, batch_item in zip(range(len(outputs)), outputs, batch):
-            output_text = output.outputs[0].text
-            batch_item["response"] = output_text
-            res = deepcopy(batch_item)
-            self.write_output_item(res)
-    
+        
     def respond_all_batches(self) -> None:
         for i in range(0, len(self.meta_data), self.batch_size):
             batch = self.meta_data[i:i+self.batch_size]
