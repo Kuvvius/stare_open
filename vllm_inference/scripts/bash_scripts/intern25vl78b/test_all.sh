@@ -22,15 +22,16 @@ export HTTPS_PROXY=$new_proxy_address
 # Define an array of datasets
 datasets=(
     # vas
-    "3d_va_test"
     "3d_va_vissim_test"
+    "3d_va_test"
+    "3d_text_instruct_test"
+    "3d_text_instruct_vissim_test"
+
     # "2d_va_vissim_test"
-    
     # "2d_va_test"
     # # tis
-    # "3d_text_instruct_vissim_test"
     # "2d_text_instruct_test"
-    # "3d_text_instruct_test"
+    
     # "2d_text_instruct_vissim_test"
     # # folding nets
     # "tangram_puzzle_test"
@@ -39,6 +40,7 @@ datasets=(
     # "folding_nets_2d_perception_test"
     # "tangram_puzzle_vissim_test"
     # "folding_nets_test"
+    # # others
 )
 
 
@@ -48,9 +50,9 @@ combined_datasets=(
     "va"
     # "va"
     # "va"
-    # # tis
-    # "text_instruct"
-    # "text_instruct"
+    # tis
+    "text_instruct"
+    "text_instruct"
     # "text_instruct"
     # "text_instruct"
     # # folding nets
@@ -60,6 +62,7 @@ combined_datasets=(
     # "folding"
     # "folding"
     # "folding"
+    # # others
 )
 
 model_path=/mnt/petrelfs/share_data/songmingyang/haoyunzhuo/models/InternVL2_5-78B

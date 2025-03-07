@@ -24,14 +24,14 @@ datasets=(
     # vas
     "3d_va_vissim_test"
     "3d_va_test"
-    
+    "3d_text_instruct_test"
+    "3d_text_instruct_vissim_test"
+
     # "2d_va_vissim_test"
-    
     # "2d_va_test"
     # # tis
-    # "3d_text_instruct_vissim_test"
     # "2d_text_instruct_test"
-    # "3d_text_instruct_test"
+    
     # "2d_text_instruct_vissim_test"
     # # folding nets
     # "tangram_puzzle_test"
@@ -50,9 +50,9 @@ combined_datasets=(
     "va"
     # "va"
     # "va"
-    # # tis
-    # "text_instruct"
-    # "text_instruct"
+    # tis
+    "text_instruct"
+    "text_instruct"
     # "text_instruct"
     # "text_instruct"
     # # folding nets
@@ -85,7 +85,8 @@ for i in "${!datasets[@]}"; do
     --output_path /mnt/petrelfs/songmingyang/code/reasoning/others/stare_open/vllm_inference/scripts/results/qwen25vl72b/${dataset_name}.jsonl \
     --function ${function_type} \
     --model_path ${model_path} \
-    --tensor_parallel_size 4 
+    --tensor_parallel_size 4 \
+    --max_model_len 96700
     
     echo "Completed ${dataset_name}"
 done

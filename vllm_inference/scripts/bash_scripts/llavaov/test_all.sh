@@ -20,47 +20,52 @@ export HTTPS_PROXY=$new_proxy_address
 
 
 # Define an array of datasets
+# Define an array of datasets
 datasets=(
     # vas
-    # "3d_va_test"
-    # "3d_va_vissim_test"
+    "3d_va_vissim_test"
+    "3d_va_test"
+    "3d_text_instruct_test"
+    "3d_text_instruct_vissim_test"
+
     # "2d_va_vissim_test"
-    
     # "2d_va_test"
     # # tis
-    # "3d_text_instruct_vissim_test"
     # "2d_text_instruct_test"
-    # "3d_text_instruct_test"
+    
     # "2d_text_instruct_vissim_test"
-    # folding nets
+    # # folding nets
     # "tangram_puzzle_test"
     # "folding_nets_vissim_test"
     # "folding_nets_3d_perception_test"
     # "folding_nets_2d_perception_test"
-    "tangram_puzzle_vissim_test"
+    # "tangram_puzzle_vissim_test"
     # "folding_nets_test"
+    # # others
 )
 
 
 combined_datasets=(
-    # # vas
+    # vas
+    "va"
+    "va"
     # "va"
     # "va"
-    # "va"
-    # "va"
-    # # tis
+    # tis
+    "text_instruct"
+    "text_instruct"
     # "text_instruct"
     # "text_instruct"
-    # "text_instruct"
-    # "text_instruct"
-    # folding nets
+    # # folding nets
     # "folding"
     # "folding"
     # "folding"
     # "folding"
     # "folding"
-    "folding"
+    # "folding"
+    # # others
 )
+
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 
 
 model_path=/mnt/petrelfs/share_data/quxiaoye/models/llava-onevision-qwen2-72b-ov-hf
@@ -84,8 +89,7 @@ for i in "${!datasets[@]}"; do
     --output_path /mnt/petrelfs/songmingyang/code/reasoning/others/stare_open/vllm_inference/scripts/results/${model_short_name}/${dataset_name}.jsonl \
     --function ${function_type} \
     --model_path ${model_path} \
-    --tensor_parallel_size 4 \
-    --truncate_prompt_tokens 22768
+    --tensor_parallel_size 4 
 
     echo "Completed ${dataset_name}"
 done

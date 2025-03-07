@@ -429,3 +429,5 @@ class MvideoInferencer(VLLMBaseInferencer):
         if self.max_images is None or \
                 (isinstance(self.max_images, dict) and "image" in self.max_images and self.max_images["image"] is None):
             self.max_images = {"image": max_images}
+            
+            
