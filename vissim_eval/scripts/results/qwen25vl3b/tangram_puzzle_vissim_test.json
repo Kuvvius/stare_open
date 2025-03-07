@@ -1,0 +1,26 @@
+{
+  "overall_f1": 0.4712123576220939,
+  "overall_accuracy": 0.4827586206896552,
+  "metrics_by_variant": {
+    "q+steps+all_intermediate_last_vis": {
+      "f1": 0.4102564102564103,
+      "accuracy": 0.4444444444444444,
+      "count": 9
+    },
+    "q+steps+all_for_valid_vis": {
+      "f1": 0.7809523809523808,
+      "accuracy": 0.8,
+      "count": 5
+    },
+    "q+steps+all_intermediate_vis": {
+      "f1": 0.25396825396825395,
+      "accuracy": 0.2857142857142857,
+      "count": 7
+    },
+    "q+steps+partial_vis": {
+      "f1": 0.5,
+      "accuracy": 0.5,
+      "count": 8
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "overall_f1": 0.7310913970499686,
+  "overall_accuracy": 0.6725,
+  "metrics_by_variant": {
+    "color": {
+      "f1": 0.6970428148376056,
+      "accuracy": 0.565,
+      "count": 200
+    },
+    "connectivity": {
+      "f1": 0.7651399792623315,
+      "accuracy": 0.78,
+      "count": 200
+    }
+  }
+}
