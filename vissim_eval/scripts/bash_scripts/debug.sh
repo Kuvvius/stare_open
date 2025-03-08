@@ -22,8 +22,8 @@ export HTTPS_PROXY=$new_proxy_address
 # Define an array of datasets
 datasets=(
     # # vas
-    # # "3d_va_vissim_test"
-    # # "3d_va_test"
+    "3d_va_vissim_test"
+    "3d_va_test"
     # "2d_va_vissim_test"
     # "2d_va_test"
     # # tis
@@ -33,10 +33,10 @@ datasets=(
     # # "3d_text_instruct_vissim_test"
     # # folding nets
     # "tangram_puzzle_test"
-    "folding_nets_2d_perception_test"
-    "folding_nets_vissim_test"
-    "folding_nets_3d_perception_test"
-    "folding_nets_test"
+    # "folding_nets_2d_perception_test"
+    # "folding_nets_vissim_test"
+    # "folding_nets_3d_perception_test"
+    # "folding_nets_test"
     # "tangram_puzzle_vissim_test"
     
     # others
@@ -48,8 +48,8 @@ datasets=(
 combined_datasets=(
     # # vas
     # # "va"
-    # # "va"
-    # "va"
+    "va"
+    "va"
     # "va"
     # # tis
     # "text_instruct"
@@ -57,10 +57,10 @@ combined_datasets=(
     # "text_instruct"
     # "text_instruct"
     # folding nets
-    "folding"
-    "folding"
-    "folding"
-    "folding"
+    # "folding"
+    # "folding"
+    # "folding"
+    # "folding"
     # "folding"
     # "folding"
     # others

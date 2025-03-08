@@ -17,6 +17,9 @@ class VissimEvaluator:
         self.input_path = input_path
         self.output_path = output_path
         self.dataset_type = dataset_type
+        
+        file_name = self.input_path.split("/")[-1].split(".")[0]
+        self.is_vissim = "vissim" in file_name
         self.load_data()
         
         
@@ -107,6 +110,8 @@ class VissimEvaluator:
         overall_pred = []
         valid_samples = 0
         
+        
+        
         for example in tqdm(self.meta_data, total=len(self.meta_data)):
             qid = example['qid']
             
@@ -136,12 +141,14 @@ class VissimEvaluator:
             pred_by_type[variant].append(pred)
             gt_by_type[variant].append(gt_ans)
             
-            # Only track non-"all" variants for difficulty and steps metrics
-            if variant != "all":
-                pred_by_difficulty[difficulty].append(pred)
-                gt_by_difficulty[difficulty].append(gt_ans)
-                pred_by_steps[num_steps].append(pred)
-                gt_by_steps[num_steps].append(gt_ans)
+            # Only track "all" variants for difficulty and steps metrics
+            if variant != "all" and self.is_vissim:
+                continue
+            
+            pred_by_difficulty[difficulty].append(pred)
+            gt_by_difficulty[difficulty].append(gt_ans)
+            pred_by_steps[num_steps].append(pred)
+            gt_by_steps[num_steps].append(gt_ans)
             
             # Track by transformation type
             if qid in qid2transformation:
@@ -298,7 +305,7 @@ class VissimEvaluator:
         overall_gt = []
         overall_pred = []
         valid_samples = 0
-        # breakpoint()
+        
         for example in tqdm(self.meta_data, total=len(self.meta_data)):
             qid = example['qid']
             
@@ -327,6 +334,9 @@ class VissimEvaluator:
             # Track by type/variant
             pred_by_type[variant].append(pred)
             gt_by_type[variant].append(gt_ans)
+            
+            if variant != "all" and self.is_vissim:
+                continue
             
             # Track by difficulty and steps
             pred_by_difficulty[difficulty].append(pred)
@@ -427,7 +437,7 @@ class VissimEvaluator:
         
         for example in tqdm(self.meta_data, total=len(self.meta_data)):
             qid = example['qid']
-            # breakpoint()
+            
             # Get prediction and ground truth
             response = example.get('response', '')
             pred = self.extract_answer_from_model_response(response).lower()
@@ -456,7 +466,7 @@ class VissimEvaluator:
                 variant = " ".join(qid.split("_")[3:])
                 if "all for valid" in variant:
                     variant = f"all for valid {gt_ans}"
-            # breakpoint()
+            
             # Skip if variant is empty
             if len(variant.strip()) == 0:
                 continue
