@@ -2,7 +2,7 @@
   "overall_f1": 0.2847748106815464,
   "overall_accuracy": 0.22797927461139897,
   "metrics_by_variant": {
-    "q_only": {
+    "q only": {
       "f1": 0.0,
       "accuracy": 0.0,
       "count": 96
@@ -12,5 +12,19 @@
       "accuracy": 0.4536082474226804,
       "count": 97
     }
+  },
+  "metrics_by_steps": {
+    "5": {
+      "f1": 0.2847748106815464,
+      "accuracy": 0.22797927461139897,
+      "count": 193
+    }
+  },
+  "all_metrics": {
+    "overall_f1": 0.2847748106815464,
+    "q only_f1": 0.0,
+    "q+steps_f1": 0.4051546391752577,
+    "5_f1": 0.2847748106815464,
+    "5_count": 193
   }
 }

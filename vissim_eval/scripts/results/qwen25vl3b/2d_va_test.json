@@ -1,11 +1,23 @@
 {
   "overall_accuracy": 0.13725490196078433,
+  "accuracy_by_variant": {
+    "no": 0.13725490196078433
+  },
   "accuracy_by_difficulty": {
     "easy": 0.14705882352941177,
     "medium": 0.14705882352941177,
     "hard": 0.11764705882352941
   },
-  "accuracy_by_variant": {
-    "no": 0.13725490196078433
+  "accuracy_by_steps": {
+    "1steps": 0.20588235294117646,
+    "2steps": 0.1568627450980392,
+    "3steps": 0.049019607843137254
+  },
+  "accuracy_by_transformation": {
+    "shear": 0.14285714285714285,
+    "translate": 0.107981220657277,
+    "scale": 0.13333333333333333,
+    "rotate": 0.13793103448275862,
+    "flip": 0.03571428571428571
   }
 }

@@ -1,0 +1,11 @@
+{
+  "overall_f1": 0.3401305454143157,
+  "overall_accuracy": 0.44,
+  "metrics_by_variant": {
+    "3d_perception_fold": {
+      "f1": 0.3401305454143157,
+      "accuracy": 0.44,
+      "count": 200
+    }
+  }
+}

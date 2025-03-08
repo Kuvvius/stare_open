@@ -1,0 +1,11 @@
+{
+  "overall_accuracy": 0.3202614379084967,
+  "accuracy_by_difficulty": {
+    "easy": 0.37254901960784315,
+    "medium": 0.2647058823529412,
+    "hard": 0.3235294117647059
+  },
+  "accuracy_by_variant": {
+    "no": 0.3202614379084967
+  }
+}

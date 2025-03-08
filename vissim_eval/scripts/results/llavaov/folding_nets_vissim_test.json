@@ -2,25 +2,47 @@
   "overall_f1": 0.37946839022258555,
   "overall_accuracy": 0.5049751243781094,
   "metrics_by_variant": {
-    "q+steps+all_intermediate_last_vis": {
+    "q+steps+all intermediate last vis": {
       "f1": 0.4561679790026246,
       "accuracy": 0.5212765957446809,
       "count": 94
     },
-    "q+steps+all_intermediate_vis": {
+    "q+steps+all intermediate vis": {
       "f1": 0.3423341790503806,
       "accuracy": 0.5,
       "count": 120
     },
-    "q+steps+partial_vis": {
+    "q+steps+partial vis": {
       "f1": 0.4022304092402668,
       "accuracy": 0.5301204819277109,
       "count": 83
     },
-    "q+steps+all_vis": {
-      "f1": 0.3176241256736613,
-      "accuracy": 0.47619047619047616,
-      "count": 105
+    "all for valid no": {
+      "f1": 0.03508771929824561,
+      "accuracy": 0.017857142857142856,
+      "count": 56
+    },
+    "all for valid yes": {
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "count": 49
     }
+  },
+  "metrics_by_steps": {
+    "5": {
+      "f1": 0.37946839022258555,
+      "accuracy": 0.5049751243781094,
+      "count": 402
+    }
+  },
+  "all_metrics": {
+    "overall_f1": 0.37946839022258555,
+    "q+steps+all intermediate last vis_f1": 0.4561679790026246,
+    "q+steps+all intermediate vis_f1": 0.3423341790503806,
+    "q+steps+partial vis_f1": 0.4022304092402668,
+    "all for valid no_f1": 0.03508771929824561,
+    "all for valid yes_f1": 1.0,
+    "5_f1": 0.37946839022258555,
+    "5_count": 402
   }
 }

@@ -2,25 +2,89 @@
   "overall_f1": 0.5226657690203834,
   "overall_accuracy": 0.5209424083769634,
   "metrics_by_variant": {
-    "q+steps+all_intermediate_last_vis": {
+    "q+steps+all intermediate last vis": {
       "f1": 0.5437987638058567,
       "accuracy": 0.5397727272727273,
       "count": 176
     },
-    "q+steps+all_for_valid_vis": {
-      "f1": 0.5040078053530852,
-      "accuracy": 0.5048543689320388,
-      "count": 206
+    "all for valid no": {
+      "f1": 0.6187050359712231,
+      "accuracy": 0.4479166666666667,
+      "count": 96
     },
-    "q+steps+all_intermediate_vis": {
+    "q+steps+all intermediate vis": {
       "f1": 0.5289588850097281,
       "accuracy": 0.529126213592233,
       "count": 206
     },
-    "q+steps+partial_vis": {
+    "all for valid yes": {
+      "f1": 0.7134502923976608,
+      "accuracy": 0.5545454545454546,
+      "count": 110
+    },
+    "q+steps+partial vis": {
       "f1": 0.519078947368421,
       "accuracy": 0.5113636363636364,
       "count": 176
     }
+  },
+  "metrics_by_steps": {
+    "5": {
+      "f1": 0.521846672756658,
+      "accuracy": 0.5233644859813084,
+      "count": 214
+    },
+    "4": {
+      "f1": 0.4871667827714275,
+      "accuracy": 0.4793814432989691,
+      "count": 194
+    },
+    "9": {
+      "f1": 0.6161161161161162,
+      "accuracy": 0.59375,
+      "count": 32
+    },
+    "7": {
+      "f1": 0.5887667705519324,
+      "accuracy": 0.5930232558139535,
+      "count": 86
+    },
+    "8": {
+      "f1": 0.5416666666666666,
+      "accuracy": 0.5416666666666666,
+      "count": 48
+    },
+    "3": {
+      "f1": 0.7636363636363637,
+      "accuracy": 0.6176470588235294,
+      "count": 68
+    },
+    "6": {
+      "f1": 0.4443413062816667,
+      "accuracy": 0.45081967213114754,
+      "count": 122
+    }
+  },
+  "all_metrics": {
+    "overall_f1": 0.5226657690203834,
+    "q+steps+all intermediate last vis_f1": 0.5437987638058567,
+    "all for valid no_f1": 0.6187050359712231,
+    "q+steps+all intermediate vis_f1": 0.5289588850097281,
+    "all for valid yes_f1": 0.7134502923976608,
+    "q+steps+partial vis_f1": 0.519078947368421,
+    "5_f1": 0.521846672756658,
+    "5_count": 214,
+    "4_f1": 0.4871667827714275,
+    "4_count": 194,
+    "9_f1": 0.6161161161161162,
+    "9_count": 32,
+    "7_f1": 0.5887667705519324,
+    "7_count": 86,
+    "8_f1": 0.5416666666666666,
+    "8_count": 48,
+    "3_f1": 0.7636363636363637,
+    "3_count": 68,
+    "6_f1": 0.4443413062816667,
+    "6_count": 122
   }
 }
