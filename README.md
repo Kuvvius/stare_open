@@ -2,6 +2,9 @@
 # STARE-OPEN
 
 ## Requirements
+
+
+
 ```bash
 git clone https://github.com/Kuvvius/stare_open
 cd stare_open
