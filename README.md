@@ -1,7 +1,20 @@
 
-# STARE-OPEN
+# STARE: Evaluating Multimodal Models on Visual Simulations
 
-The official repository of **Unfolding Spatial Cognition:Evaluating Multimodal Models on Visual Simulations**.
+<div align="center" style="font-family: Arial, sans-serif;">
+  <p>
+    <a href="https://stare-bench.github.io/" style="text-decoration: none; font-weight: bold;">🌻 Homepage</a> •
+    <a href="https://huggingface.co/datasets/hitsmy/PRMBench_Preview" style="text-decoration: none; font-weight: bold;">🤗 Data</a> 
+  </p>
+</div>
+
+
+<p align="center" width="80%">
+  <img src="./images/stare_overview.png" width="80%" height="70%">
+</p>
+<p align="center" style="font-size: 14px; color: gray;">
+  <em>An overview of our <b>STARE</b>. </em>
+</p>
 
 ## Requirements
 
