@@ -4,7 +4,7 @@
 <div align="center" style="font-family: Arial, sans-serif;">
   <p>
     <a href="https://stare-bench.github.io/" style="text-decoration: none; font-weight: bold;">🌻 Homepage</a> •
-    <a href="[https://huggingface.co/datasets/hitsmy/PRMBench_Preview](https://huggingface.co/STARE-VisSim)" style="text-decoration: none; font-weight: bold;">🤗 Data</a> 
+    <a href="[[https://huggingface.co/datasets/hitsmy/PRMBench_Preview](https://huggingface.co/STARE-VisSim)](https://huggingface.co/STARE-VisSim)" style="text-decoration: none; font-weight: bold;">🤗 Data</a> 
   </p>
 </div>
 
