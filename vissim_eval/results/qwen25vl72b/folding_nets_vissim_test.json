@@ -1,0 +1,48 @@
+{
+  "overall_f1": 0.48314036592338483,
+  "overall_accuracy": 0.5666666666666667,
+  "metrics_by_variant": {
+    "q+steps+all intermediate last vis": {
+      "f1": 0.4229388843314192,
+      "accuracy": 0.5652173913043478,
+      "count": 69
+    },
+    "q+steps+all intermediate vis": {
+      "f1": 0.5343232633555214,
+      "accuracy": 0.5913978494623656,
+      "count": 93
+    },
+    "q+steps+partial vis": {
+      "f1": 0.4185198247698248,
+      "accuracy": 0.515625,
+      "count": 64
+    },
+    "all for valid no": {
+      "f1": 0.34782608695652173,
+      "accuracy": 0.21052631578947367,
+      "count": 38
+    },
+    "all for valid yes": {
+      "f1": 0.9859154929577465,
+      "accuracy": 0.9722222222222222,
+      "count": 36
+    }
+  },
+  "metrics_by_steps": {
+    "5": {
+      "f1": 0.48314036592338483,
+      "accuracy": 0.5666666666666667,
+      "count": 300
+    }
+  },
+  "all_metrics": {
+    "overall_f1": 0.48314036592338483,
+    "q+steps+all intermediate last vis_f1": 0.4229388843314192,
+    "q+steps+all intermediate vis_f1": 0.5343232633555214,
+    "q+steps+partial vis_f1": 0.4185198247698248,
+    "all for valid no_f1": 0.34782608695652173,
+    "all for valid yes_f1": 0.9859154929577465,
+    "5_f1": 0.48314036592338483,
+    "5_count": 300
+  }
+}
